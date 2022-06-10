@@ -8,24 +8,20 @@ import {
   ComparisonCardImage
 } from "./styles";
 
-function ComparisonCard({ image, label, title, text, style }) {
+function ComparisonCard({ image, label, title, text, isGood }) {
   return (
-    <Comparison>
-      <div className={style}>
-        <ComparisonCardHeader>
-          <ComparisonCardImage
-            src={image}
-            width="56"
-            height="56"
-            alt="тематическое изображение"
-          />
-          <ComparisonCardLabel>
-            <p className={`label-${style}`}>{label}</p>
-          </ComparisonCardLabel>
-          <Title size={TitleSize.B18}>{title}</Title>
-        </ComparisonCardHeader>
-        <ComparisonCardText>{text}</ComparisonCardText>
-      </div>
+    <Comparison isGood={isGood}>
+      <ComparisonCardHeader>
+        <ComparisonCardImage
+          src={image}
+          width="56"
+          height="56"
+          alt="тематическое изображение"
+        />
+        <ComparisonCardLabel isGood={isGood}>{label}</ComparisonCardLabel>
+        <Title size={TitleSize.B18}>{title}</Title>
+      </ComparisonCardHeader>
+      <ComparisonCardText>{text}</ComparisonCardText>
     </Comparison>
   );
 }
